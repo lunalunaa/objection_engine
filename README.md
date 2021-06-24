@@ -1,5 +1,8 @@
 ## Objection! rendering engine 👨🏼‍⚖️
 
+本 fork 使用自定义的中文字体以便支持中文，请自行在 `assets/custom-cjk-font` 内替换合适的中文字体 `custom-cjk-font`
+
+
 Code that allows you to convert chains of comments into ace attorney scenes. It's meant to be used by bots or other apps.
 List of users:
 - [Twiitter Bot](https://github.com/LuisMayo/ace-attorney-twitter-bot)

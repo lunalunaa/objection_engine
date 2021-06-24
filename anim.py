@@ -47,6 +47,11 @@ def do_video(config: List[Dict], output_filename):
     scenes = []
     sound_effects = []
     part = 0
+
+    # custom_font = "assets/igiari/Igiari.ttf"
+    # the original font does not support chinese
+    custom_font = "assets/custom-cjk-font/custom-cjk-font.ttf"
+
     for scene in config:
         # We pick up the images to be rendered
         bg = AnimImg(constants.location_map[scene["location"]])
@@ -85,7 +90,7 @@ def do_video(config: List[Dict], output_filename):
                 #                     current_character_name = "The Player"
                 character_name = AnimText(
                     current_character_name,
-                    font_path="assets/igiari/Igiari.ttf",
+                    font_path= custom_font,
                     font_size=12,
                     x=4,
                     y=113,
@@ -148,7 +153,7 @@ def do_video(config: List[Dict], output_filename):
                 _colour = None if "colour" not in obj else obj["colour"]
                 text = AnimText(
                     _text,
-                    font_path="assets/igiari/Igiari.ttf",
+                    font_path= custom_font,
                     font_size=15,
                     x=5,
                     y=130,
@@ -160,7 +165,7 @@ def do_video(config: List[Dict], output_filename):
                 if "name" in obj:
                     _character_name = AnimText(
                         obj["name"],
-                        font_path="assets/igiari/Igiari.ttf",
+                        font_path= custom_font,
                         font_size=12,
                         x=4,
                         y=113,

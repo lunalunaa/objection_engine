@@ -15,7 +15,10 @@ class AnimVideo:
                 os.makedirs("tmp")
             rnd_hash = random.getrandbits(64)
             output_path = f"tmp/{rnd_hash}.mp4"
-        fourcc = cv2.VideoWriter_fourcc(*"avc1")
+        
+        # changed the avc1 codec to mp4
+        # fourcc = cv2.VideoWriter_fourcc(*"avc1")
+        fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         background = self.scenes[0].frames[0]
         if os.path.isfile(output_path):
             os.remove(output_path)

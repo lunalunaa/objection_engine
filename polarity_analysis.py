@@ -32,8 +32,10 @@ class Analizer:
             except UnknownLanguage:
                 language = self.detect_language_heuristic(text)
 
+
             self.language_counter.update({language: 1})
             # print(self.language_counter)
+
             
             if (language == 'en'):
                 return self.proccess_eng(text)
@@ -42,7 +44,7 @@ class Analizer:
                 return self.process_google(text)
             
             try:
-                return self.process_poly(text)
+                return self.process_poly(text, language)
             except ZeroDivisionError:
                 return 'N'
             except Exception as e:
@@ -70,10 +72,18 @@ class Analizer:
             return '-'
         return 'N'
 
-    def process_poly(self, text):
-        poly_text = Text(text)
+
+
+    def process_poly(self, text, lang_code=None):
+        
+        if (lang_code[0:2] == 'zh'):
+            lang_code = 'zh'
+
+        poly_text = Text(text, lang_code)
         if (poly_text.polarity > 0.35):
             return '+'
+        
+        
         # If polarity is -1 there isn't enough information to determine if it's negative therefore we introduce randomness
         if (poly_text.polarity < -0.35 and (poly_text.polarity > -1 or random.random() > 0.25)):
             return '-'
