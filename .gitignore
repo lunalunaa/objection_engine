@@ -11,3 +11,5 @@ db.json
 assets/
 
 *.mp4
+
+.vscode

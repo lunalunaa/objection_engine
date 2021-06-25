@@ -20,8 +20,14 @@ class Analizer:
         except Exception as e:
             print('Warning! Translator couldn\'t be initialized, fallbacking to unofficial translation engine: ' + str(e))
             self.official_api = False
-    
+
+
     def get_sentiment(self, text):
+
+        # to get reliable result, directly put all this to google
+        if (self.official_api):
+            return self.process_google(text)
+
         try:
             try:
                 if (polyglot_available):

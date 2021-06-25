@@ -2,6 +2,7 @@ from typing import List
 from beans import scene
 import cv2
 import os
+import random
 import numpy as np
 
 class AnimVideo:
